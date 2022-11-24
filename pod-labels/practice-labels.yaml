@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: http-go
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: prac-nginx
+    image: nginx
+    ports:
+    - containerPort: 8080
+      protocol: TCP
