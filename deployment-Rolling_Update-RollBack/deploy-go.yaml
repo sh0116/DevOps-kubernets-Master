@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-go-deployment
+  labels:
+    app: http-go
+spec:
+  strategy:
+    type: RollingUpdate
+  replicas: 3
+  selector:
+    matchLabels:
+      app: http-go
+  template:
+    metadata:
+      labels:
+        app: http-go
+    spec:
+      containers:
+      - name: http-go
+        image: seokhyeon116/http-go:v1
+        ports:
+        - containerPort: 8080
