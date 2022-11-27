@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tomcat-np
+  name: tomcat-np
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcat-np
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tomcat-np
+    spec:
+      containers:
+      - image: tomcat
+        name: tomcat
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
