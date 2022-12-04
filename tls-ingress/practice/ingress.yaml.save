@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-pra
+spec:
+curl http://gasbugs.com:32049/welcome/test -kv --resolve gasbugs.com:32049:127.0.0.1
+  rules:
+  - host: "tomcat.gasbugs.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tomcat
+            port:
+              number: 80
+  - host: "http-go.gasbugs.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: http-go
+            port:
+              number: 80
